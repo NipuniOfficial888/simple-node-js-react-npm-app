@@ -1,15 +1,10 @@
 pipeline {
-    agent {
-    	docker {
-    		image 'node:6-alpine'
-    		args '-p 3000:3000'
-
-    	}
-    }
+    agent any
     stages {
         stage('Build') { 
             steps {
-                sh 'npm install' 
+                // Use bat instead of sh to execute commands in a Windows shell
+                bat '"C:\\Program Files\\nodejs\\npm.cmd" install' 
             }
         }
     }
